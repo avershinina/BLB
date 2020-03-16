@@ -1,13 +1,14 @@
 #!/usr/bin/bash
 # 23 Oct 2018
 # A. Vershinina
-# Goal: convert BAM files to FASTA files using ANGSD. Create two sets of fastas: with thransitions and without transitions.
+# Goal: convert BAM files to FASTA files using ANGSD. 
+# If your genomes are low coverage, you may want to exclude transitions. The foloowing script does not do that.
 
 HOME=/avershinina
 FILES=${HOME}/horse_genomes/*.bam
 ANGSD=${HOME}/tools/angsd/angsd
 FILTERS='-minQ 25 -minMapQ 25 -uniqueOnly -setMinDepth 5 -setMaxDepth 100 -iupacRatio 0.35 -nThreads 10 -howOften 1000'
-REF=${HOME}/horse_genomes/Equus_cab_nucl_wChrUn.fasta
+REF=${HOME}/horse_genomes/ecab2.fasta
 
 echo "Starting conversion, transitions included"
 
